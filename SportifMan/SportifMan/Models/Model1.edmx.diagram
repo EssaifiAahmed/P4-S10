@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="257060bfc8d941848e1072ad3db3724b" Name="Diagram1">
+        <EntityTypeShape EntityType="sportModel.Athlete" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.CategorieAge" Width="1.5" PointX="8.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Competition" Width="1.5" PointX="5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Critere" Width="1.5" PointX="10" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Critere_sante" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Entiteathlete" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Entitesportif" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Santeathlete" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.Sport" Width="1.5" PointX="7.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.sysdiagram" Width="1.5" PointX="8.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportModel.TypeCompetition" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="sportModel.FK_Athlete" ManuallyRouted="false" />
+        <AssociationConnector Association="sportModel.FK_Santeathlete" ManuallyRouted="false" />
+        <AssociationConnector Association="sportModel.FK__Competiti__idcom__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="sportModel.FKCritere964352" ManuallyRouted="false" />
+        <AssociationConnector Association="sportModel.FK_CritereSante" ManuallyRouted="false" />
+        <AssociationConnector Association="sportModel.FK_EntiteSportif" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

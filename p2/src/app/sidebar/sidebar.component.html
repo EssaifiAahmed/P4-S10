@@ -1,0 +1,35 @@
+<div class="container-fluid ">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <aside class="col-12 col-md-2 p-0 bg-info flex-shrink-1">
+            <nav class="navbar navbar-expand navbar-dark bg-info flex-md-column flex-row align-items-start py-2">
+                <div class="collapse navbar-collapse ">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" routerLink="view"><i class="fa fa-list-alt fa-fw"></i> <span class="font-weight-bold"> Entite sportif</span></a>
+                        </li>
+                        <li class="nav-item">
+        
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" routerLink="categori"><i class="fa fa-child codeply fa-fw"></i> <span class="d-none d-md-inline"> categories</span></a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link pl-0" routerLink="sportif"><i class="fa fa-user fa-fw"></i> <span class="d-none d-md-inline"> athlete</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" routerLink="sport"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline"> sport</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" routerLink="clube"><i class="fa fa-sign-out codeply fa-fw"></i> <span class="d-none d-md-inline">Clube</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <main class="col bg-faded py-3 flex-grow-1">
+            <router-outlet></router-outlet>
+        </main>
+     
+    </div>
+</div>

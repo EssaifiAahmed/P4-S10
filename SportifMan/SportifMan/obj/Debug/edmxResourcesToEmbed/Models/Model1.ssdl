@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Athléte">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Prenom" Type="varchar" MaxLength="50" />
+    <Property Name="Date_naissance" Type="date" />
+    <Property Name="Catégorie" Type="varchar" MaxLength="50" />
+    <Property Name="image" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CatégorieAge">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Age de" Type="int" />
+    <Property Name="Age a" Type="int" />
+    <Property Name="Label" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Compétition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type CompétitionID" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="int" />
+  </EntityType>
+  <EntityType Name="Critère">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SportID" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Critére_santé">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_indice" Type="varchar" MaxLength="50" />
+    <Property Name="Valeur_min" Type="int" />
+    <Property Name="Valeur_max" Type="int" />
+  </EntityType>
+  <EntityType Name="Entitéathléte">
+    <Key>
+      <PropertyRef Name="AthléteID" />
+      <PropertyRef Name="Entité-sportifID" />
+    </Key>
+    <Property Name="Date_debut" Type="date" />
+    <Property Name="Date_Fin" Type="date" />
+    <Property Name="AthléteID" Type="int" Nullable="false" />
+    <Property Name="Entité-sportifID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entitésportif">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Date_création" Type="date" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Performance">
+    <Key>
+      <PropertyRef Name="ida" />
+      <PropertyRef Name="idc" />
+      <PropertyRef Name="idca" />
+      <PropertyRef Name="idco" />
+    </Key>
+    <Property Name="Valeur" Type="float" />
+    <Property Name="ida" Type="int" Nullable="false" />
+    <Property Name="idc" Type="int" Nullable="false" />
+    <Property Name="idca" Type="int" Nullable="false" />
+    <Property Name="idco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Santéathléte">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Valeur" Type="int" />
+    <Property Name="Date_exam" Type="int" />
+    <Property Name="Critére_santéID" Type="int" />
+    <Property Name="AthléteID" Type="int" />
+  </EntityType>
+  <EntityType Name="Sport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TypeCompétition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Performanc__idca__6A30C649">
+    <End Role="CatégorieAge" Type="Self.CatégorieAge" Multiplicity="1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatégorieAge">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="idca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performanc__idco__6B24EA82">
+    <End Role="Compétition" Type="Self.Compétition" Multiplicity="1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compétition">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="idco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performance__ida__68487DD7">
+    <End Role="Athléte" Type="Self.Athléte" Multiplicity="1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Athléte">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="ida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performance__idc__693CA210">
+    <End Role="Critère" Type="Self.Critère" Multiplicity="1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Critère">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="idc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compétition">
+    <End Role="TypeCompétition" Type="Self.TypeCompétition" Multiplicity="1" />
+    <End Role="Compétition" Type="Self.Compétition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCompétition">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Compétition">
+        <PropertyRef Name="Type CompétitionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Entitéathléte_Athlète">
+    <End Role="Athléte" Type="Self.Athléte" Multiplicity="1" />
+    <End Role="Entitéathléte" Type="Self.Entitéathléte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Athléte">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Entitéathléte">
+        <PropertyRef Name="AthléteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Entitéathléte_Entité">
+    <End Role="Entitésportif" Type="Self.Entitésportif" Multiplicity="1" />
+    <End Role="Entitéathléte" Type="Self.Entitéathléte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entitésportif">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Entitéathléte">
+        <PropertyRef Name="Entité-sportifID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Santéathléte_athlète">
+    <End Role="Athléte" Type="Self.Athléte" Multiplicity="0..1" />
+    <End Role="Santéathléte" Type="Self.Santéathléte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Athléte">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Santéathléte">
+        <PropertyRef Name="AthléteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKCritère964352">
+    <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+    <End Role="Critère" Type="Self.Critère" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sport">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Critère">
+        <PropertyRef Name="SportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Santé-athléte">
+    <End Role="Critére_santé" Type="Self.Critére_santé" Multiplicity="0..1" />
+    <End Role="Santéathléte" Type="Self.Santéathléte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Critére_santé">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Santéathléte">
+        <PropertyRef Name="Critére_santéID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sportsModelStoreContainer">
+    <EntitySet Name="Athléte" EntityType="Self.Athléte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatégorieAge" EntityType="Self.CatégorieAge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Compétition" EntityType="Self.Compétition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Critère" EntityType="Self.Critère" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Critére_santé" EntityType="Self.Critére_santé" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entitéathléte" EntityType="Self.Entitéathléte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entitésportif" EntityType="Self.Entitésportif" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Performance" EntityType="Self.Performance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Santéathléte" EntityType="Self.Santéathléte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sport" EntityType="Self.Sport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCompétition" EntityType="Self.TypeCompétition" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Performanc__idca__6A30C649" Association="Self.FK__Performanc__idca__6A30C649">
+      <End Role="CatégorieAge" EntitySet="CatégorieAge" />
+      <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performanc__idco__6B24EA82" Association="Self.FK__Performanc__idco__6B24EA82">
+      <End Role="Compétition" EntitySet="Compétition" />
+      <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performance__ida__68487DD7" Association="Self.FK__Performance__ida__68487DD7">
+      <End Role="Athléte" EntitySet="Athléte" />
+      <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performance__idc__693CA210" Association="Self.FK__Performance__idc__693CA210">
+      <End Role="Critère" EntitySet="Critère" />
+      <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compétition" Association="Self.FK_Compétition">
+      <End Role="TypeCompétition" EntitySet="TypeCompétition" />
+      <End Role="Compétition" EntitySet="Compétition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Entitéathléte_Athlète" Association="Self.FK_Entitéathléte_Athlète">
+      <End Role="Athléte" EntitySet="Athléte" />
+      <End Role="Entitéathléte" EntitySet="Entitéathléte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Entitéathléte_Entité" Association="Self.FK_Entitéathléte_Entité">
+      <End Role="Entitésportif" EntitySet="Entitésportif" />
+      <End Role="Entitéathléte" EntitySet="Entitéathléte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Santéathléte_athlète" Association="Self.FK_Santéathléte_athlète">
+      <End Role="Athléte" EntitySet="Athléte" />
+      <End Role="Santéathléte" EntitySet="Santéathléte" />
+    </AssociationSet>
+    <AssociationSet Name="FKCritère964352" Association="Self.FKCritère964352">
+      <End Role="Sport" EntitySet="Sport" />
+      <End Role="Critère" EntitySet="Critère" />
+    </AssociationSet>
+    <AssociationSet Name="Santé-athléte" Association="Self.Santé-athléte">
+      <End Role="Critére_santé" EntitySet="Critére_santé" />
+      <End Role="Santéathléte" EntitySet="Santéathléte" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

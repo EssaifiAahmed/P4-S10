@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sportsModelStoreContainer" CdmEntityContainer="sportsEntities">
+    <EntitySetMapping Name="CatégorieAge">
+      <EntityTypeMapping TypeName="sportsModel.CatégorieAge">
+        <MappingFragment StoreEntitySet="CatégorieAge">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Age_de" ColumnName="Age de" />
+          <ScalarProperty Name="Age_a" ColumnName="Age a" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Compétition">
+      <EntityTypeMapping TypeName="sportsModel.Compétition">
+        <MappingFragment StoreEntitySet="Compétition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type_CompétitionID" ColumnName="Type CompétitionID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Critère">
+      <EntityTypeMapping TypeName="sportsModel.Critère">
+        <MappingFragment StoreEntitySet="Critère">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SportID" ColumnName="SportID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Critére_santé">
+      <EntityTypeMapping TypeName="sportsModel.Critére_santé">
+        <MappingFragment StoreEntitySet="Critére_santé">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom_indice" ColumnName="Nom_indice" />
+          <ScalarProperty Name="Valeur_min" ColumnName="Valeur_min" />
+          <ScalarProperty Name="Valeur_max" ColumnName="Valeur_max" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entitésportif">
+      <EntityTypeMapping TypeName="sportsModel.Entitésportif">
+        <MappingFragment StoreEntitySet="Entitésportif">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Date_création" ColumnName="Date_création" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Performance">
+      <EntityTypeMapping TypeName="sportsModel.Performance">
+        <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+          <ScalarProperty Name="ida" ColumnName="ida" />
+          <ScalarProperty Name="idc" ColumnName="idc" />
+          <ScalarProperty Name="idca" ColumnName="idca" />
+          <ScalarProperty Name="idco" ColumnName="idco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Santéathléte">
+      <EntityTypeMapping TypeName="sportsModel.Santéathléte">
+        <MappingFragment StoreEntitySet="Santéathléte">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+          <ScalarProperty Name="Date_exam" ColumnName="Date_exam" />
+          <ScalarProperty Name="Critére_santéID" ColumnName="Critére_santéID" />
+          <ScalarProperty Name="AthléteID" ColumnName="AthléteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sport">
+      <EntityTypeMapping TypeName="sportsModel.Sport">
+        <MappingFragment StoreEntitySet="Sport">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCompétition">
+      <EntityTypeMapping TypeName="sportsModel.TypeCompétition">
+        <MappingFragment StoreEntitySet="TypeCompétition">
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entitéathléte">
+      <EntityTypeMapping TypeName="sportsModel.Entitéathléte">
+        <MappingFragment StoreEntitySet="Entitéathléte">
+          <ScalarProperty Name="Entité_sportifID" ColumnName="Entité-sportifID" />
+          <ScalarProperty Name="AthléteID" ColumnName="AthléteID" />
+          <ScalarProperty Name="Date_Fin" ColumnName="Date_Fin" />
+          <ScalarProperty Name="Date_debut" ColumnName="Date_debut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Athléte">
+      <EntityTypeMapping TypeName="sportsModel.Athléte">
+        <MappingFragment StoreEntitySet="Athléte">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Catégorie" ColumnName="Catégorie" />
+          <ScalarProperty Name="Date_naissance" ColumnName="Date_naissance" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row flex-lg-nowrap">
+    
+    
+      <div class="col">
+       
+    
+        <div class="row flex-lg-nowrap">
+          <div class="col mb-3">
+            <div class="e-panel card">
+              <div class="card-body">
+                <div class="card-title">
+                  <h6 class="mr-2"><span>Sportifs</span></h6>
+                </div>
+                <div class="e-table">
+                  <div class="table-responsive table-lg mt-3">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th class="align-top">
+                            <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0">
+                              <input type="checkbox" class="custom-control-input" id="all-items">
+                              <label class="custom-control-label" for="all-items"></label>
+                            </div>
+                          </th>
+                          <th>Photo</th>
+                          <th>id</th>
+                          <th class="max-width">Name</th>
+                          <th class="sortable">Date</th>
+                          
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let sportif of tab">
+                        <tr>
+                          <td class="align-middle">
+                            <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+                              <input type="checkbox" class="custom-control-input" id="item-1">
+                              <label class="custom-control-label" for="item-1"></label>
+                            </div>
+                          </td>
+                          <td class="align-middle text-center">
+                           
+                            <!-- <div class="bg-light d-inline-flex justify-content-center align-items-center align-top" style="width: 35px; height: 35px; border-radius: 3px;"><i class="fa fa-fw fa-photo" style="opacity: 0.8;"></i></div> -->
+                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="">
+                          </td>
+                             <td class="text-nowrap align-middle">{{sportif.ID}}</td>
+                          <td class="text-nowrap align-middle">{{ sportif.Nom}} </td>
+                          <td class="text-nowrap align-middle"><span>{{sportif.Date_naissance}}</span></td>
+
+                          <td class="text-center align-middle">
+                            <div class="btn-group align-top">
+                                <button class="btn btn-sm btn-outline-secondary badge" type="button" ><i class="fa fa-trash fa-fw"></i></button>
+         
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                                           
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <ul class="pagination mt-3 mb-0">
+                      <li class="disabled page-item"><a  class="page-link">‹</a></li>
+                      <li class="active  page-item"><a  class="page-link">1</a></li>
+                      <li class="page-item"><a  class="page-link">2</a></li>
+                      <li class="page-item"><a  class="page-link">3</a></li>
+                      <li class="page-item"><a  class="page-link">›</a></li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="text-center px-xl-3">
+                  <button class="btn btn-info btn-block"  routerLink="/addsportif" type="button" data-toggle="modal" data-target="#user-form-modal"><i class="fa fa-plus codeply fa-fw"></i> athlete</button>
+                </div>
+              
+                <hr class="my-3">
+                <div>
+                  <div class="form-group">
+                    <label>Search by CNE:</label>
+                    <div><input class="form-control w-100" type="text" placeholder="CNE" value=""></div>
+                  </div>
+                  <hr class="my-3">
+
+                  <div class="form-group">
+                    <label>Search by Year:</label>
+                    <div><input class="form-control w-100" type="text" placeholder="Year" value=""></div>
+                  </div>
+
+                  <hr class="my-3">
+
+                  <div class="form-group">
+                    <label>Search by Name:</label>
+                    <div><input class="form-control w-100" type="text" placeholder="Name" value=""></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
